@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARCO Asuntos Públicos</title>
+<meta name="description" content="ARCO: asuntos públicos, riesgo político y regulatorio en República Dominicana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0c1522);
+--ink:light-dark(#16212e,#e6ebf1);
+--mute:light-dark(#5d6977,#9aa7b6);
+--line:light-dark(#dfe4ea,#243244);
+--soft:light-dark(#f2f4f7,#111d2c);
+--navy:#0f2a47;
+--navy2:#0a1f36;
+--blue:light-dark(#2c5e91,#7fb0e0);
+--accent:#4a8fd0}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;letter-spacing:-.015em;margin:0}
+h1{font-size:clamp(32px,4.4vw,50px);line-height:1.08;text-wrap:balance}
+h2{font-size:clamp(28px,3vw,38px);line-height:1.1;text-wrap:balance}
+h3{font-size:21px;line-height:1.25}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding-block:clamp(48px,6vw,88px);padding-inline:max(5vw,16px)}
+.lead{font-size:17px;color:var(--mute);max-width:62ch}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:3px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible,nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+header{position:sticky;top:0;z-index:5;background:var(--navy2);color:#fff;border-bottom:1px solid #1d3a5c}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(5vw,16px);flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Source Serif 4",Georgia,serif;font-size:22px;font-weight:600;letter-spacing:.06em}
+nav{display:flex;gap:4px 22px;flex-wrap:wrap;font-size:15px}
+nav a{text-decoration:none;color:#c9d6e4;padding:6px 0}
+nav a:hover{color:#fff}
+.hero{background:var(--navy);color:#fff}
+.hero .lead{color:#c3d1e0}
+.hero-top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn-w{background:#fff;color:var(--navy)}
+.btn-w:hover{background:#e6edf5}
+.btn-o{border-color:#5c7a9c;color:#fff}
+.btn-o:hover{border-color:#fff}
+.chart{margin-top:40px;border-top:1px solid #29496d;padding-top:20px}
+.chart-h{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#a9bdd2}
+.chart-h b{color:#fff;font-weight:600}
+.fig{position:relative;height:300px;margin-top:8px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 28px;margin-top:14px;font-size:14px;color:#c3d1e0}
+.legend b{color:#fff;font-family:"Source Serif 4",Georgia,serif;font-size:17px;margin-right:6px}
+.note{font-size:13px;color:#8fa6bf;margin-top:12px}
+.sec-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 56px;align-items:end;margin-bottom:40px}
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
+.svc article{padding:26px 0;border-top:1px solid var(--line)}
+.svc h3{margin-bottom:8px}
+.svc p{color:var(--mute)}
+.svc .out{margin-top:10px;font-size:14px;color:var(--blue);font-weight:500}
+.soft{background:var(--soft)}
+.app{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:32px 64px}
+.app ul{list-style:none;margin:0;padding:0}
+.app li{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr);gap:4px 24px;padding:20px 0;border-top:1px solid var(--line)}
+.app li strong{font-family:"Source Serif 4",Georgia,serif;font-size:19px;font-weight:600}
+.app li span{color:var(--mute)}
+.sectors{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.sectors span{border:1px solid var(--line);background:var(--bg);padding:7px 14px;border-radius:3px;font-size:14px}
+.pubs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.pub{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:2px solid var(--navy)}
+:root[data-theme=dark] .pub{border-top-color:var(--accent)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .pub{border-top-color:var(--accent)}}
+.pub .meta{font-size:13px;color:var(--mute)}
+.pub p{color:var(--mute)}
+.pub a{margin-top:auto;font-weight:600;font-size:15px;color:var(--blue);text-decoration:none}
+.sample{font-size:13px;color:var(--mute);margin-top:24px}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px 64px;align-items:start}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 32px;margin-top:28px}
+.facts div{border-top:1px solid var(--line);padding-top:12px}
+.facts dt{font-size:13px;color:var(--mute)}
+.facts dd{margin:2px 0 0;font-weight:500}
+.about .body p+p{margin-top:14px}
+.contact{background:var(--navy);color:#fff}
+.contact .lead{color:#c3d1e0}
+.cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px 64px}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+label{display:grid;gap:6px;font-size:14px;color:#c3d1e0}
+label.full{grid-column:1/-1}
+input,textarea{font:16px Inter,system-ui,sans-serif;padding:11px 12px;border:1px solid #3a5a7e;background:#0b2240;color:#fff;border-radius:3px;width:100%}
+textarea{min-height:120px;resize:vertical}
+form .btn{grid-column:1/-1;justify-self:start}
+#status{grid-column:1/-1;font-size:14px;color:#a9d0f5;min-height:1.2em}
+footer{background:var(--navy2);color:#9fb3c8;font-size:14px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding:28px max(5vw,16px)}
+.foot nav a{color:#9fb3c8}
+@media(max-width:860px){
+.hero-top,.sec-h,.app,.about,.cgrid{grid-template-columns:minmax(0,1fr)}
+.pubs{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:600px){
+.svc{grid-template-columns:minmax(0,1fr)}
+.app li{grid-template-columns:minmax(0,1fr)}
+.legend{grid-template-columns:minmax(0,1fr)}
+.facts,form{grid-template-columns:minmax(0,1fr)}
+.fig{height:240px}
+nav{font-size:14px;gap:2px 16px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fan path{animation:none!important}}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <a class="logo" href="#inicio" aria-label="ARCO, inicio">
+      <svg width="30" height="24" viewBox="0 0 30 24" aria-hidden="true"><path d="M3 23V13a12 12 0 0 1 24 0v10" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M9.5 23v-9a5.5 5.5 0 0 1 11 0v9" fill="none" stroke="#7fb0e0" stroke-width="2.4"/></svg>
+      ARCO
+    </a>
+    <nav aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#enfoque">Enfoque</a>
+      <a href="#analisis">Análisis</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="band hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <h1>Asuntos públicos y riesgo político en República Dominicana</h1>
+      </div>
+      <div>
+        <p class="lead">Convertimos la incertidumbre política y regulatoria en escenarios, probabilidades y decisiones para empresas que operan o invierten en el país.</p>
+        <div class="hero-cta" style="margin-top:24px">
+          <a class="btn btn-w" href="#contacto">Hablemos</a>
+          <a class="btn btn-o" href="#servicios">Nuestros servicios</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart" aria-label="Ciclo electoral 2026 a 2028 con tres escenarios">
+      <div class="chart-h"><span><b>Ciclo electoral 2026–2028</b> · tres caminos posibles hacia el próximo gobierno</span><span>Calendario JCE</span></div>
+      <div class="fig" id="fig"><svg id="fan" role="img" aria-label="Línea de tiempo desde hoy hasta agosto de 2028 con precampaña, primarias, elecciones municipales y presidenciales, y un abanico de tres escenarios"></svg></div>
+      <div class="legend">
+        <div><b>A</b>El PRM continúa en el gobierno y conserva su mayoría legislativa.</div>
+        <div><b>B</b>Fuerza del Pueblo gana la presidencia con un Congreso dividido.</div>
+        <div><b>C</b>Fuerza del Pueblo gana en segunda vuelta con apoyo del PLD.</div>
+      </div>
+      <p class="note">Para cada escenario estimamos qué medidas salen adelante y cómo afectan a cada sector.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="servicios">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>Nuestros servicios</h2>
+      <p class="lead">Inteligencia y estrategia para que la política y la regulación dejen de ser una sorpresa. Cada encargo termina en un entregable concreto y accionable.</p>
+    </div>
+    <div class="svc">
+      <article>
+        <h3>Inteligencia política y regulatoria</h3>
+        <p>Seguimiento del Congreso, la Gaceta Oficial, los reguladores y el debate público, filtrado según lo que afecta a su negocio.</p>
+        <p class="out">Entregable: parte semanal y alertas cuando algo se mueve.</p>
+      </article>
+      <article>
+        <h3>Entry Scan regulatorio</h3>
+        <p>Diagnóstico previo a la entrada o expansión en el país: marco legal, permisos, incentivos, instituciones y actores que intervienen.</p>
+        <p class="out">Entregable: informe de riesgos y hoja de ruta regulatoria.</p>
+      </article>
+      <article>
+        <h3>Riesgo político y escenarios electorales</h3>
+        <p>Qué cambia para su sector según quién gobierne a partir de 2028, con preguntas verificables y una probabilidad para cada escenario.</p>
+        <p class="out">Entregable: mapa de escenarios y medidas a vigilar.</p>
+      </article>
+      <article>
+        <h3>Mapa de actores e incidencia</h3>
+        <p>Quién decide, quién influye y qué posiciones sostienen. Estrategia y mensajes para participar en consultas públicas y procesos normativos.</p>
+        <p class="out">Entregable: mapa de actores y plan de incidencia.</p>
+      </article>
+      <article>
+        <h3>Entrada al mercado</h3>
+        <p>Acompañamiento en regímenes de incentivos (zonas francas, turismo, energía), trámites y relación con las instituciones de promoción.</p>
+        <p class="out">Entregable: plan de entrada y calendario de trámites.</p>
+      </article>
+      <article>
+        <h3>Licitaciones y contratación pública</h3>
+        <p>Vigilancia de procesos, lectura de pliegos y contexto institucional para competir con criterio en las compras públicas.</p>
+        <p class="out">Entregable: radar de oportunidades y análisis por proceso.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band soft" id="enfoque">
+  <div class="wrap app">
+    <div>
+      <h2>Cómo trabajamos</h2>
+      <p class="lead" style="margin-top:16px">Un enfoque de economía política: entender los incentivos de quienes deciden, no solo lo que dicen.</p>
+      <div class="sectors" aria-label="Sectores">
+        <span>Energía</span><span>Zonas francas</span><span>Turismo</span><span>Consumo y retail</span><span>Construcción e infraestructura</span><span>Tecnología y BPO</span>
+      </div>
+    </div>
+    <ul>
+      <li><strong>Preguntas verificables</strong><span>Formulamos cada riesgo como una pregunta con fecha y fuente de resolución. Así cualquiera puede comprobar después si acertamos.</span></li>
+      <li><strong>Escenarios con probabilidad</strong><span>No decimos quién va a ganar: estimamos qué cambia para usted en cada resultado y con qué probabilidad.</span></li>
+      <li><strong>Dato y lectura, separados</strong><span>Lo que es un hecho, con su fuente, y lo que es interpretación nuestra, siempre marcado como tal.</span></li>
+      <li><strong>Trato directo</strong><span>Una firma boutique: el análisis lo hace y lo presenta quien firma el informe.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="analisis">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>Análisis</h2>
+      <p class="lead">Publicamos parte de nuestro trabajo para que la conversación pública sobre la República Dominicana tenga más datos y menos ruido.</p>
+    </div>
+    <div class="pubs">
+      <article class="pub">
+        <span class="meta">Informe · Octubre 2026</span>
+        <h3>Elecciones 2028: qué cambia para las empresas</h3>
+        <p>Calendario, candidatos, encuestas y los riesgos fiscales, salariales y de precios que dominarán el ciclo electoral.</p>
+        <a href="#contacto">Solicitar el informe →</a>
+      </article>
+      <article class="pub">
+        <span class="meta">Boletín · Semanal</span>
+        <h3>La semana legislativa</h3>
+        <p>Lo que se aprobó, lo que se depositó y lo que viene en el Congreso, leído en clave de negocio.</p>
+        <a href="#contacto">Suscribirse →</a>
+      </article>
+      <article class="pub">
+        <span class="meta">Ensayo · Próximamente</span>
+        <h3>Ideología y política en la República Dominicana</h3>
+        <p>¿Importan las ideas en un sistema de partidos personalistas? Lo que esto significa para predecir decisiones de gobierno.</p>
+        <a href="#contacto">Recibir aviso →</a>
+      </article>
+    </div>
+    <p class="sample">Publicaciones de muestra para la vista previa; se enlazarán a la newsletter al publicar la web.</p>
+  </div>
+</section>
+
+<section class="band soft" id="nosotros">
+  <div class="wrap about">
+    <div>
+      <h2>Nosotros</h2>
+      <dl class="facts">
+        <div><dt>Foco</dt><dd>República Dominicana</dd></div>
+        <div><dt>Base</dt><dd>Barcelona</dd></div>
+        <div><dt>Idiomas</dt><dd>Español, inglés, francés</dd></div>
+        <div><dt>Disciplina</dt><dd>Economía política</dd></div>
+      </dl>
+    </div>
+    <div class="body">
+      <p class="lead" style="color:var(--ink)">ARCO es una consultora boutique de asuntos públicos especializada en la República Dominicana, un mercado con alta inversión extranjera y poca inteligencia política profesional disponible.</p>
+      <p class="lead">Fundada por Marcos Martínez, dominicano, graduado en Filosofía, Política y Economía (PPE) por la Universidad de Navarra y estudiante del Máster en Políticas Públicas y Sociales de la UPF Barcelona School of Management. Su experiencia está en el análisis de políticas públicas, la investigación económica y el análisis de riesgo político vinculados a la República Dominicana.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contacto">
+  <div class="wrap cgrid">
+    <div>
+      <h2>Hablemos</h2>
+      <p class="lead" style="margin-top:16px">Cuéntenos qué decisión tiene por delante en la República Dominicana. Le respondemos en un plazo de 48 horas laborables con una primera lectura.</p>
+    </div>
+    <form id="cform" novalidate>
+      <label>Nombre<input id="f-name" name="nombre" autocomplete="name" required></label>
+      <label>Empresa<input id="f-org" name="empresa" autocomplete="organization"></label>
+      <label class="full">Correo electrónico<input id="f-mail" name="email" type="email" autocomplete="email" required></label>
+      <label class="full">¿En qué podemos ayudarle?<textarea id="f-msg" name="mensaje" required></textarea></label>
+      <button class="btn btn-w" type="submit">Enviar</button>
+      <p id="status" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot">
+    <span>© 2026 ARCO · Asuntos públicos y riesgo político</span>
+    <nav aria-label="Legal"><a href="#contacto">Aviso legal</a><a href="#contacto">Privacidad</a><a href="#contacto">Cookies</a></nav>
+    <span>Nuestros análisis no constituyen asesoría legal ni fiscal.</span>
+  </div>
+</footer>
+
+<script>
+{
+  const s = document.getElementById('fan');
+  const ms = [
+    {m:8, n:'Precampaña', d:'jul 2027'},
+    {m:11, n:'Primarias', d:'oct 2027'},
+    {m:15, n:'Municipales', d:'feb 2028'},
+    {m:18, n:'Presidenciales', d:'may 2028'}
+  ];
+  const ticks = [{m:0,t:'Hoy'},{m:2,t:'2027'},{m:14,t:'2028'},{m:21,t:'ago 2028'}];
+  const draw = () => {
+    const W = s.clientWidth, H = s.clientHeight;
+    if (!W || !H) return;
+    const narrow = W < 560;
+    const l = 10, r = 34, t = narrow ? 30 : 46, b = 30;
+    const x = m => l + (W - l - r) * m / 21;
+    const y0 = t + (H - t - b) / 2, sp = (H - t - b) * 0.42;
+    const x0 = x(0), x1 = x(21);
+    const ends = [y0 - sp, y0, y0 + sp];
+    const curve = ye => `M${x0},${y0} C${x(9)},${y0} ${x(14)},${ye} ${x1},${ye}`;
+    let h = '';
+    h += `<path d="M${x0},${y0} C${x(9)},${y0} ${x(14)},${ends[0]} ${x1},${ends[0]} L${x1},${ends[2]} C${x(14)},${ends[2]} ${x(9)},${y0} ${x0},${y0}Z" fill="#4a8fd0" fill-opacity=".14"/>`;
+    ms.forEach((k, i) => {
+      const xx = x(k.m);
+      h += `<line x1="${xx}" x2="${xx}" y1="${t - 4}" y2="${H - b}" stroke="#4d6d92" stroke-dasharray="3 4"/>`;
+      if (narrow) {
+        h += `<text x="${xx}" y="${t - 12}" text-anchor="middle" fill="#c3d1e0" font-size="12">${k.d.replace(' 20',' ')}</text>`;
+      } else {
+        const ty = i % 2 ? t - 10 : t - 28;
+        h += `<text x="${xx}" y="${ty}" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="600">${k.n}<tspan fill="#a9bdd2" font-weight="400"> · ${k.d}</tspan></text>`;
+      }
+    });
+    h += `<line x1="${x0}" x2="${x1}" y1="${H - b}" y2="${H - b}" stroke="#3a5a7e"/>`;
+    ticks.forEach(k => {
+      if (narrow && k.m === 21) return;
+      const xx = x(k.m);
+      const anc = k.m === 0 ? 'start' : (k.m === 21 ? 'end' : 'middle');
+      h += `<text x="${xx}" y="${H - b + 19}" text-anchor="${anc}" fill="#8fa6bf" font-size="12">${k.t}</text>`;
+    });
+    const cols = ['#ffffff', '#9cc4ea', '#5f97cc'];
+    h += '<g class="fan">';
+    ends.forEach((ye, i) => {
+      h += `<path d="${curve(ye)}" fill="none" stroke="${cols[i]}" stroke-width="2.2" pathLength="1" stroke-dasharray="1" style="animation:draw 1.4s ease-out ${i * 0.15}s both"/>`;
+    });
+    h += '</g>';
+    ['A', 'B', 'C'].forEach((n, i) => {
+      h += `<circle cx="${x1}" cy="${ends[i]}" r="4" fill="${cols[i]}"/><text x="${x1 + 10}" y="${ends[i] + 6}" fill="#ffffff" font-size="17" font-family="Source Serif 4, Georgia, serif" font-weight="600">${n}</text>`;
+    });
+    h += `<circle cx="${x0}" cy="${y0}" r="5" fill="#ffffff"/>`;
+    s.innerHTML = h;
+  };
+  const ro = new ResizeObserver(draw);
+  ro.observe(s);
+
+  const f = document.getElementById('cform');
+  const st = document.getElementById('status');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('f-name').value.trim();
+    const mail = document.getElementById('f-mail').value.trim();
+    const msg = document.getElementById('f-msg').value.trim();
+    if (!name || !mail.includes('@') || !msg) {
+      st.textContent = 'Complete nombre, un correo válido y su mensaje.';
+      return;
+    }
+    st.textContent = 'Vista previa: el formulario se conectará al publicar la web con el dominio definitivo. Su mensaje no se ha enviado.';
+  });
+}
+</script>
+</body>
+</html>
