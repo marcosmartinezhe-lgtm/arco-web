@@ -7,7 +7,7 @@
 <meta name="description" content="ARCO: asuntos públicos, riesgo político y regulatorio en República Dominicana.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{color-scheme:light dark;
 --bg:light-dark(#ffffff,#0c1522);
@@ -23,39 +23,48 @@
 :root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
-h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;letter-spacing:-.015em;margin:0}
-h1{font-size:clamp(32px,4.4vw,50px);line-height:1.08;text-wrap:balance}
-h2{font-size:clamp(28px,3vw,38px);line-height:1.1;text-wrap:balance}
-h3{font-size:21px;line-height:1.25}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:400;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(40px,6.4vw,84px);line-height:1.02;text-wrap:balance}
+h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1;text-wrap:balance}
+h3{font-size:23px;line-height:1.25;font-weight:500}
 p{margin:0}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto}
 .band{padding-block:clamp(48px,6vw,88px);padding-inline:max(5vw,16px)}
 .lead{font-size:17px;color:var(--mute);max-width:62ch}
-.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:3px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:0;font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;cursor:pointer}
 .btn:focus-visible,input:focus-visible,textarea:focus-visible,nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 header{position:sticky;top:0;z-index:5;background:var(--navy2);color:#fff;border-bottom:1px solid #1d3a5c}
 .hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(5vw,16px);flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Source Serif 4",Georgia,serif;font-size:22px;font-weight:600;letter-spacing:.06em}
-nav{display:flex;gap:4px 22px;flex-wrap:wrap;font-size:15px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Newsreader,Georgia,serif;font-size:23px;font-weight:500;letter-spacing:.14em}
+nav{display:flex;gap:4px 26px;flex-wrap:wrap;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
 nav a{text-decoration:none;color:#c9d6e4;padding:6px 0}
 nav a:hover{color:#fff}
-.hero{background:var(--navy);color:#fff}
-.hero .lead{color:#c3d1e0}
-.hero-top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:18px}
+.cover{position:relative;background:var(--navy);color:#fff;min-height:calc(100svh - 60px);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.cover .eyebrow{color:#9cc4ea}
+.cover .lead{color:#c3d1e0;font-size:19px;margin-top:28px}
+.cover h1{max-width:18ch}
+.cover .wrap{position:relative;z-index:1;width:100%}
+.arch{position:absolute;right:-6vw;bottom:-2px;width:min(62vw,760px);height:auto;opacity:.5;pointer-events:none}
+.cue{position:absolute;left:max(5vw,16px);bottom:28px;z-index:1;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#a9bdd2;text-decoration:none}
+.cue:hover{color:#fff}
+.hero{background:var(--navy2);color:#fff}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
 .btn-w{background:#fff;color:var(--navy)}
 .btn-w:hover{background:#e6edf5}
 .btn-o{border-color:#5c7a9c;color:#fff}
 .btn-o:hover{border-color:#fff}
-.chart{margin-top:40px;border-top:1px solid #29496d;padding-top:20px}
+.chart{margin-top:36px;border-top:1px solid #29496d;padding-top:20px}
+.hero h2{max-width:22ch}
+.hero .lead{color:#c3d1e0;margin-top:16px}
 .chart-h{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;font-size:14px;color:#a9bdd2}
 .chart-h b{color:#fff;font-weight:600}
 .fig{position:relative;height:300px;margin-top:8px}
 .fig>svg{position:absolute;inset:0;width:100%;height:100%}
 .legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 28px;margin-top:14px;font-size:14px;color:#c3d1e0}
-.legend b{color:#fff;font-family:"Source Serif 4",Georgia,serif;font-size:17px;margin-right:6px}
+.legend b{color:#fff;font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:500;margin-right:6px}
 .note{font-size:13px;color:#8fa6bf;margin-top:12px}
 .sec-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 56px;align-items:end;margin-bottom:40px}
 .svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
@@ -67,7 +76,7 @@ nav a:hover{color:#fff}
 .app{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:32px 64px}
 .app ul{list-style:none;margin:0;padding:0}
 .app li{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr);gap:4px 24px;padding:20px 0;border-top:1px solid var(--line)}
-.app li strong{font-family:"Source Serif 4",Georgia,serif;font-size:19px;font-weight:600}
+.app li strong{font-family:Newsreader,Georgia,serif;font-size:21px;font-weight:500}
 .app li span{color:var(--mute)}
 .sectors{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .sectors span{border:1px solid var(--line);background:var(--bg);padding:7px 14px;border-radius:3px;font-size:14px}
@@ -91,7 +100,7 @@ nav a:hover{color:#fff}
 form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 label{display:grid;gap:6px;font-size:14px;color:#c3d1e0}
 label.full{grid-column:1/-1}
-input,textarea{font:16px Inter,system-ui,sans-serif;padding:11px 12px;border:1px solid #3a5a7e;background:#0b2240;color:#fff;border-radius:3px;width:100%}
+input,textarea{font:16px "IBM Plex Sans",system-ui,sans-serif;padding:11px 12px;border:1px solid #3a5a7e;background:#0b2240;color:#fff;border-radius:3px;width:100%}
 textarea{min-height:120px;resize:vertical}
 form .btn{grid-column:1/-1;justify-self:start}
 #status{grid-column:1/-1;font-size:14px;color:#a9d0f5;min-height:1.2em}
@@ -99,10 +108,11 @@ footer{background:var(--navy2);color:#9fb3c8;font-size:14px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding:28px max(5vw,16px)}
 .foot nav a{color:#9fb3c8}
 @media(max-width:860px){
-.hero-top,.sec-h,.app,.about,.cgrid{grid-template-columns:minmax(0,1fr)}
+.sec-h,.app,.about,.cgrid{grid-template-columns:minmax(0,1fr)}
 .pubs{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:600px){
+.arch{width:110vw;right:-30vw;opacity:.3}
 .svc{grid-template-columns:minmax(0,1fr)}
 .app li{grid-template-columns:minmax(0,1fr)}
 .legend{grid-template-columns:minmax(0,1fr)}
@@ -133,30 +143,34 @@ nav{font-size:14px;gap:2px 16px}
 </header>
 
 <main>
-<section class="band hero" id="inicio">
+<section class="band cover" id="inicio">
+  <svg class="arch" viewBox="0 0 760 560" aria-hidden="true"><path d="M40 560V380a340 340 0 0 1 680 0v180" fill="none" stroke="#2c5e91" stroke-width="2"/><path d="M190 560V400a190 190 0 0 1 380 0v160" fill="none" stroke="#4a8fd0" stroke-width="2"/><path d="M320 560V430a60 60 0 0 1 120 0v130" fill="none" stroke="#7fb0e0" stroke-width="2"/></svg>
   <div class="wrap">
-    <div class="hero-top">
-      <div>
-        <h1>Asuntos públicos y riesgo político en República Dominicana</h1>
-      </div>
-      <div>
-        <p class="lead">Convertimos la incertidumbre política y regulatoria en escenarios, probabilidades y decisiones para empresas que operan o invierten en el país.</p>
-        <div class="hero-cta" style="margin-top:24px">
-          <a class="btn btn-w" href="#contacto">Hablemos</a>
-          <a class="btn btn-o" href="#servicios">Nuestros servicios</a>
-        </div>
-      </div>
+    <p class="eyebrow">Asuntos públicos · Riesgo político · República Dominicana</p>
+    <h1>La política dominicana, convertida en decisiones de negocio</h1>
+    <p class="lead">Convertimos la incertidumbre política y regulatoria en escenarios, probabilidades y decisiones para empresas que operan o invierten en el país.</p>
+    <div class="hero-cta" style="margin-top:36px">
+      <a class="btn btn-w" href="#contacto">Hablemos</a>
+      <a class="btn btn-o" href="#servicios">Nuestros servicios</a>
     </div>
+  </div>
+  <a class="cue" href="#ciclo">Ciclo electoral 2026–2028 ↓</a>
+</section>
 
+<section class="band hero" id="ciclo">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#9cc4ea">Escenarios</p>
+    <h2>Tres caminos hacia el próximo gobierno</h2>
+    <p class="lead">Para cada escenario estimamos qué medidas salen adelante y cómo afectan a cada sector.</p>
     <div class="chart" aria-label="Ciclo electoral 2026 a 2028 con tres escenarios">
-      <div class="chart-h"><span><b>Ciclo electoral 2026–2028</b> · tres caminos posibles hacia el próximo gobierno</span><span>Calendario JCE</span></div>
+      <div class="chart-h"><span><b>Ciclo electoral 2026–2028</b></span><span>Calendario JCE</span></div>
       <div class="fig" id="fig"><svg id="fan" role="img" aria-label="Línea de tiempo desde hoy hasta agosto de 2028 con precampaña, primarias, elecciones municipales y presidenciales, y un abanico de tres escenarios"></svg></div>
       <div class="legend">
         <div><b>A</b>El PRM continúa en el gobierno y conserva su mayoría legislativa.</div>
         <div><b>B</b>Fuerza del Pueblo gana la presidencia con un Congreso dividido.</div>
         <div><b>C</b>Fuerza del Pueblo gana en segunda vuelta con apoyo del PLD.</div>
       </div>
-      <p class="note">Para cada escenario estimamos qué medidas salen adelante y cómo afectan a cada sector.</p>
+      <p class="note">Fechas según el calendario electoral de la JCE.</p>
     </div>
   </div>
 </section>
@@ -340,7 +354,7 @@ nav{font-size:14px;gap:2px 16px}
     });
     h += '</g>';
     ['A', 'B', 'C'].forEach((n, i) => {
-      h += `<circle cx="${x1}" cy="${ends[i]}" r="4" fill="${cols[i]}"/><text x="${x1 + 10}" y="${ends[i] + 6}" fill="#ffffff" font-size="17" font-family="Source Serif 4, Georgia, serif" font-weight="600">${n}</text>`;
+      h += `<circle cx="${x1}" cy="${ends[i]}" r="4" fill="${cols[i]}"/><text x="${x1 + 10}" y="${ends[i] + 6}" fill="#ffffff" font-size="19" font-family="Newsreader, Georgia, serif" font-weight="500">${n}</text>`;
     });
     h += `<circle cx="${x0}" cy="${y0}" r="5" fill="#ffffff"/>`;
     s.innerHTML = h;
